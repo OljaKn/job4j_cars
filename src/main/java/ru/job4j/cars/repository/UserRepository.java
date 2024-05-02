@@ -26,6 +26,8 @@ public class UserRepository {
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
         return user;
     }
@@ -42,6 +44,8 @@ public class UserRepository {
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
     }
 
@@ -60,6 +64,8 @@ public class UserRepository {
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
     }
 
@@ -76,6 +82,8 @@ public class UserRepository {
             return users;
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            session.close();
         }
         return new ArrayList<>();
     }
@@ -96,8 +104,10 @@ public class UserRepository {
             return query;
         } catch (Exception e) {
             session.getTransaction().rollback();
-            return Optional.empty();
+        } finally {
+            session.close();
         }
+        return Optional.empty();
     }
 
     /**
@@ -116,8 +126,10 @@ public class UserRepository {
             return users;
         } catch (Exception e) {
             session.getTransaction().rollback();
-            return new ArrayList<>();
+        } finally {
+            session.close();
         }
+        return new ArrayList<>();
     }
 
     /**
@@ -137,7 +149,9 @@ public class UserRepository {
             return query;
         } catch (Exception e) {
             session.getTransaction().rollback();
-            return Optional.empty();
+        } finally {
+            session.close();
         }
+        return Optional.empty();
     }
 }
