@@ -33,4 +33,6 @@ public class Car {
             inverseJoinColumns = {
                     @JoinColumn(name = "owner_id", nullable = false, updatable = false)})
     private Owner owner;
+
+    private String brand;
 }
