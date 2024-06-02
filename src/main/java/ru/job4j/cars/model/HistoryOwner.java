@@ -5,23 +5,26 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
-@Entity(name = "cars")
+@Entity(name = "history_owner")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Car {
+public class HistoryOwner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
+
     @ManyToOne
-    @JoinColumn(name = "engine_id", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
-    private Engine engine;
+    @JoinColumn(name = "car_id")
+    private Car car;
 
-    @OneToMany(mappedBy = "car")
-    Set<HistoryOwner> owners;
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 
-    private String brand;
+    private LocalDateTime startAt;
+    private LocalDateTime endAt;
 }

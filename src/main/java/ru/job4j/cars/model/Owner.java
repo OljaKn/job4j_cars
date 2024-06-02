@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -15,6 +16,9 @@ public class Owner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private int id;
+
+    @OneToMany(mappedBy = "owner")
+    private Set<HistoryOwner> owners;
 
     private String name;
 }
