@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -18,7 +19,7 @@ public class Owner {
     private int id;
 
     @OneToMany(mappedBy = "owner")
-    private Set<HistoryOwner> owners;
+    private Set<HistoryOwner> owners = new HashSet<>();
 
     private String name;
 }

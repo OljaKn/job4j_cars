@@ -21,7 +21,7 @@ public class Car {
     private Engine engine;
 
     @OneToMany(mappedBy = "car")
-    Set<HistoryOwner> owners;
+    private Set<HistoryOwner> owners = new HashSet<>();
 
     private String brand;
 }
