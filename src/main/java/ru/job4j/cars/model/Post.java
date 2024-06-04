@@ -38,6 +38,6 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "photo_id")
-    private Photo photo;
+    private List<Photo> photo;
 
 }
