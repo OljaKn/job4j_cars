@@ -35,6 +35,6 @@ public class CarRepository {
     }
 
     public List<Car> findAll() {
-        return crudRepository.query("select distinct c from Car c join fetch c.owners order by c.id", Car.class);
+        return crudRepository.query("select distinct c from Car c left join fetch c.owners order by c.id", Car.class);
     }
 }

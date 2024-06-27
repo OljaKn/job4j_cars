@@ -3,13 +3,16 @@ package ru.job4j.cars.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
-@Entity(name = "history_owner")
+@NoArgsConstructor
+@Entity
+@Table(name = "history_owner")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class HistoryOwner {
     @Id

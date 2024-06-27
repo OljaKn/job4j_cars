@@ -3,13 +3,16 @@ package ru.job4j.cars.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 @Data
 @AllArgsConstructor
-@Entity(name = "cars")
+@NoArgsConstructor
+@Entity
+@Table(name = "cars")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Car {
     @Id

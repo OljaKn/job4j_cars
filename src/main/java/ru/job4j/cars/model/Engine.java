@@ -3,14 +3,15 @@ package ru.job4j.cars.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Data
 @AllArgsConstructor
-@Entity(name = "engine")
+@NoArgsConstructor
+@Entity
+@Table(name = "engine")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Engine {
     @Id
